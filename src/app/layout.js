@@ -1,6 +1,5 @@
 import { Cormorant_Garamond } from "next/font/google";
-// import "./globals.css";
-import "./globals copy.css";
+import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 // const geistSans = Geist({

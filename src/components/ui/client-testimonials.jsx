@@ -1,17 +1,32 @@
+"use client";
+import { useEffect, useState } from "react";
+
 const Testimonials = () => {
-    const description =
-      "Ratisha's eye for great design made our wedding cards stand out. She's amazing";
-    return (
-      <div className="px-4 py-8">
-        <h1 className="text-[rgba(173,163,150,1)] text-3xl sm:text-4xl md:text-5xl text-center mb-4">
-          Testimonials from Our Clients
-        </h1>
-        <p className="text-[rgba(173,163,150,1)] text-4xl sm:text-5xl md:text-6xl lg:text-8xl px-4 pb-4 text-center">
-          &quot;{description}&quot;
-        </p>
-      </div>
-    );
-  };
-  
-  export default Testimonials;
-  
+  const quotes = [
+    "Ratisha's eye for great design made our wedding cards stand out. She's amazing.",
+    "The custom invitation cards were beyond our expectations. Thank you, Paperie!",
+    "Paperie turned our wedding into a work of art. Every detail was perfect!",
+    "Our event was elevated by Paperie's creative stationery. We couldn’t be happier.",
+    "The attention to detail in every design was remarkable. Highly recommended!",
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [quotes.length]);
+
+  return (
+    <div className="px-4 py-8">
+      <h1 className="text-[rgba(173,163,150,1)] text-3xl sm:text-4xl md:text-5xl text-center mb-4">
+        Testimonials from Our Clients
+      </h1>
+      <p className=" transition-discrete text-[rgba(173,163,150,1)] text-4xl sm:text-5xl md:text-6xl lg:text-8xl px-4 pb-4 text-center">
+        &quot;{quotes[currentIndex]}&quot;
+      </p>
+    </div>
+  );
+};
+
+export default Testimonials;

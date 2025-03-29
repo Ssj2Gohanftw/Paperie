@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import NavLinks from "./navlinks"; 
+import NavLinks from "./navlinks";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -22,7 +22,12 @@ const Navbar = () => {
       {/* Left Navigation for Desktop */}
       <div className="hidden md:flex flex-1 gap-8">
         {leftNavItems.map((item, index) => (
-          <NavLinks key={index} route={item.route} link={item.link} className="text-lg" />
+          <NavLinks
+            key={index}
+            route={item.route}
+            link={item.link}
+            className="text-lg"
+          />
         ))}
       </div>
 
@@ -36,7 +41,12 @@ const Navbar = () => {
       {/* Right Navigation for Desktop */}
       <div className="hidden md:flex flex-1 justify-end gap-8">
         {rightNavItems.map((item, index) => (
-          <NavLinks key={index} route={item.route} link={item.link} className="text-lg" />
+          <NavLinks
+            key={index}
+            route={item.route}
+            link={item.link}
+            className="text-lg"
+          />
         ))}
       </div>
 
