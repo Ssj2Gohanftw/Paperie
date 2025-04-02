@@ -3,19 +3,19 @@ import Image from "next/image";
 const AboutSection = () => {
   const items = [
     {
-      src: "/images/Trunks.jpeg",
+      src: "/images/D6F51DB1-C069-4332-A9F0-B8E02FABA746.jpeg",
       alt: "Image 1",
       title: "Portfolio 1",
       description: "See Our Latest Designs",
     },
     {
-      src: "/images/Gohan.jpeg",
+      src: "/images/Shenon-22.jpeg",
       alt: "Image 2",
       title: "Portfolio 2",
       description: "Our Creative Work",
     },
     {
-      src: "/images/Goku.png",
+      src: "/images/CA209F3D-9478-4D62-B705-2D01E19F9120.jpeg",
       alt: "Image 3",
       title: "Portfolio 3",
       description: "Innovative Concepts",

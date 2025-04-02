@@ -3,9 +3,8 @@ import Image from "next/image";
 const IntroSection = () => {
   return (
     <div className="flex flex-col items-center justify-center px-4 py-8">
-      {/* Logo Image */}
       <Image
-        src="/images/Android-17.jpeg"
+        src="/images/logo/paperie-logo.png"
         alt="Paperie Logo"
         width={200}
         height={200}

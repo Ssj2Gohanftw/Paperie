@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Instagram, Facebook } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -9,8 +10,18 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-center md:text-left">
-            <h2 className="text-xl font-bold">Paperie</h2>
-            <p className="text-sm">&copy; {new Date().getFullYear()} Paperie. All rights reserved.</p>
+            {/* <h2 className="text-xl font-bold">Paperie</h2> */}
+            <div className="flex justify-center mb-2">
+              <Image
+                width={200}
+                height={150}
+                alt="Paperie Logo"
+                src="/images/logo/paperie-logo.png"
+              ></Image>
+            </div>
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} Paperie. All rights reserved.
+            </p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-4 mb-4 md:mb-0">

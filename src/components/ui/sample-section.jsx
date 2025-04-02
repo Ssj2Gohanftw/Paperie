@@ -16,15 +16,14 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
+const imagePaths = [
+  "/images/c065d61c-64d4-4e3e-ae00-c0e98b9df094.jpeg",
+  "/images/IMG_5778.jpeg",
+  "/images/471e88b3-d486-4e4c-88f7-686290c5f766.jpeg",
+  "/images/785fcf1e-32ba-49d4-a439-7d862718026f.jpeg",
+  "/images/IMG_5781.jpeg",
+];
 const SampleCards = () => {
-  const imagePaths = [
-    "/images/Goten.jpeg",
-    "/images/Beerus.jpeg",
-    "/images/Gohan.jpeg",
-    "/images/Goku.png",
-    "/images/Piccolo.jpeg",
-    "/images/Broly.jpeg",
-  ];
   return (
     <Carousel>
       <CarouselContent className="p-4 sm:p-8 md:p-20">
