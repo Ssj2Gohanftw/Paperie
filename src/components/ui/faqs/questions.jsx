@@ -60,7 +60,7 @@ const questions = [
 const Questions = () => {
   return (
     <div className="p-6">
-      <h1 className="flex flex-col items-center justify-center text-center text-4xl font-semibold  text-[rgba(173,163,150,1)] mb-6">
+      <h1 className="flex flex-col items-center justify-center text-center text-4xl font-semibold  mb-6">
         Frequently Asked Questions
       </h1>
       <Accordion type="single" collapsible>

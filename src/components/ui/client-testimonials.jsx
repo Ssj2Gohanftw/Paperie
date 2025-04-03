@@ -19,10 +19,10 @@ const Testimonials = () => {
 
   return (
     <div className="px-4 py-8">
-      <h1 className="text-[rgba(173,163,150,1)] text-3xl sm:text-4xl md:text-5xl text-center mb-4">
+      <h1 className=" text-3xl sm:text-4xl md:text-5xl text-center mb-4">
         Testimonials from Our Clients
       </h1>
-      <p className=" transition-discrete text-[rgba(173,163,150,1)] text-4xl sm:text-5xl md:text-6xl lg:text-8xl px-4 pb-4 text-center">
+      <p className=" transition-discrete  text-4xl sm:text-5xl md:text-6xl lg:text-8xl px-4 pb-4 text-center">
         &quot;{quotes[currentIndex]}&quot;
       </p>
     </div>

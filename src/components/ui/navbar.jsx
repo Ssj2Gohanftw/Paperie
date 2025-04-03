@@ -31,11 +31,9 @@ const Navbar = () => {
           />
         ))}
       </div>
-
-      {/* Center Logo/Title */}
       <div className="flex flex-1 justify-center">
         <Link href="/">
-          <div className="relative w-24 sm:w-32 md:w-40 lg:w-48 aspect-[640/664] flex items-center justify-center p-2">
+          <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center p-2">
             <Image
               src="/images/logo/paperie-logo.png"
               alt="Paperie Logo"
@@ -69,7 +67,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-blue-900 text-white md:hidden z-50">
           <ul className="flex flex-col justify-center text-center space-y-4 p-6">
