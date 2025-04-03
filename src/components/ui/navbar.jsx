@@ -11,8 +11,10 @@ const Navbar = () => {
   const leftNavItems = [
     { link: "Home", route: "/" },
     { link: "About", route: "/about" },
+    { link: "Portfolio", route: "/portfolio" }, 
     { link: "Contact", route: "/contact" },
   ];
+
   const rightNavItems = [
     { link: "Shop", route: "/shop" },
     { link: "Follow Us", route: "/" },
@@ -21,6 +23,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-between p-8 pb-20 bg-white relative h-32 md:h-36 z-50">
+      {/* Left Nav Items */}
       <div className="hidden md:flex flex-1 gap-8">
         {leftNavItems.map((item, index) => (
           <NavLinks
@@ -32,22 +35,21 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Center Logo/Title */}
+      {/* Center Logo */}
       <div className="flex flex-1 justify-center">
         <Link href="/">
           <div className="relative w-24 sm:w-32 md:w-40 lg:w-48 aspect-[640/664] flex items-center justify-center p-2">
             <Image
               src="/images/logo/paperie-logo.png"
               alt="Paperie Logo"
-              // width={200}
-              // height={208}
               fill
-              className="object-contain pt-15 mt-2 "
+              className="object-contain pt-15 mt-2"
             />
           </div>
         </Link>
       </div>
 
+      {/* Right Nav Items */}
       <div className="hidden md:flex flex-1 justify-end gap-8">
         {rightNavItems.map((item, index) => (
           <NavLinks
@@ -59,6 +61,7 @@ const Navbar = () => {
         ))}
       </div>
 
+      {/* Mobile Menu Button */}
       <div className="md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -69,7 +72,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-blue-900 text-white md:hidden z-50">
           <ul className="flex flex-col justify-center text-center space-y-4 p-6">
