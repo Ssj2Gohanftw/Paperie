@@ -11,13 +11,12 @@ const Navbar = () => {
   const leftNavItems = [
     { link: "Home", route: "/" },
     { link: "About", route: "/about" },
-    { link: "Portfolio", route: "/portfolio" }, 
     { link: "Contact", route: "/contact" },
   ];
 
   const rightNavItems = [
     { link: "Shop", route: "/shop" },
-    { link: "Follow Us", route: "/" },
+    { link: "Portfolio", route: "/portfolio" },
     { link: "FAQs", route: "/faqs" },
   ];
 
@@ -35,10 +34,9 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Center Logo */}
       <div className="flex flex-1 justify-center">
         <Link href="/">
-          <div className="relative w-24 sm:w-32 md:w-40 lg:w-48 aspect-[640/664] flex items-center justify-center p-2">
+          <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center p-2">
             <Image
               src="/images/logo/paperie-logo.png"
               alt="Paperie Logo"
@@ -49,7 +47,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Right Nav Items */}
       <div className="hidden md:flex flex-1 justify-end gap-8">
         {rightNavItems.map((item, index) => (
           <NavLinks
@@ -61,7 +58,6 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Mobile Menu Button */}
       <div className="md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -72,7 +68,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-blue-900 text-white md:hidden z-50">
           <ul className="flex flex-col justify-center text-center space-y-4 p-6">

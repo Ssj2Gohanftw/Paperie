@@ -36,7 +36,7 @@ const AboutSection = () => {
           <h2 className="text-xl md:text-2xl font-semibold mt-4">
             {item.title}
           </h2>
-          <p className="text-[rgba(173,163,150,1)] mt-2 max-w-xs text-center text-sm">
+          <p className="mt-2 max-w-xs text-center text-sm">
             {item.description}
           </p>
         </div>

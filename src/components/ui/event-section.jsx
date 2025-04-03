@@ -27,7 +27,7 @@ const eventpics = [
 const EventSection = () => {
   return (
     <section className="w-full p-4">
-      <h1 className="text-[rgba(173,163,150,1)] text-4xl md:text-6xl px-6 text-center mb-4">
+      <h1 className=" text-4xl md:text-6xl px-6 text-center mb-4">
         Some of Our Favourite Cards
       </h1>
       <Carousel className="relative">
@@ -45,9 +45,7 @@ const EventSection = () => {
                 />
               </div>
               <div className="mt-2 text-center">
-                <p className="text-lg md:text-xl text-[rgba(173,163,150,1)]">
-                  {slide.description}
-                </p>
+                <p className="text-lg md:text-xl ">{slide.description}</p>
               </div>
             </CarouselItem>
           ))}

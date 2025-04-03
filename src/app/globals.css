@@ -124,9 +124,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-[rgba(173,163,150,1)];
     background: var(--background);
-    color: var(--foreground);
+    color: rgba(173, 163, 150, 1);
     font-family: var(--font-cormorant-garamond), Arial, Helvetica, sans-serif;
   }
 }

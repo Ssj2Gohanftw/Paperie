@@ -37,7 +37,7 @@ const images = [
 const InstagramSection = () => {
   return (
     <section className="w-full p-4">
-      <h2 className="text-2xl font-semibold text-center mb-4 text-[rgba(173,163,150,1)]">
+      <h2 className="text-2xl font-semibold text-center mb-4 ">
         Our Instagram Content
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
