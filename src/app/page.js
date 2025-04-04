@@ -1,4 +1,3 @@
-import Image from "next/image";
 import EventSection from "@/components/ui/event-section";
 import AboutSection from "@/components/ui/about-section";
 import Testimonials from "@/components/ui/client-testimonials";
@@ -8,7 +7,7 @@ import IntroSection from "@/components/ui/intro-section";
 import { Separator } from "@/components/ui/separator";
 const Home = () => {
   return (
-    <div>
+    <>
       <SampleCards />
       <div className="flex items-center justify-center flex-col">
         <IntroSection />
@@ -21,7 +20,7 @@ const Home = () => {
         <Separator />
         <InstagramSection />
       </div>
-    </div>
+    </>
   );
 };
 export default Home;

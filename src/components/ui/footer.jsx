@@ -10,7 +10,6 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-center md:text-left">
-            {/* <h2 className="text-xl font-bold">Paperie</h2> */}
             <div className="flex justify-center mb-2">
               <Image
                 width={200}
@@ -22,21 +21,6 @@ const Footer = () => {
             <p className="text-sm">
               &copy; {new Date().getFullYear()} Paperie. All rights reserved.
             </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-4 mb-4 md:mb-0">
-            <Link href="/" className="hover:text-gray-600">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-gray-600">
-              About
-            </Link>
-            <Link href="/contact" className="hover:text-gray-600">
-              Contact
-            </Link>
-            <Link href="/faqs" className="hover:text-gray-600">
-              FAQs
-            </Link>
           </div>
 
           <div className="flex gap-4">
