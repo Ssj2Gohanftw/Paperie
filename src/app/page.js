@@ -1,5 +1,5 @@
 import EventSection from "@/components/ui/event-section";
-import AboutSection from "@/components/ui/about-section";
+import AboutSection from "@/components/ui/learn-more-section";
 import Testimonials from "@/components/ui/client-testimonials";
 import InstagramSection from "@/components/ui/instagram-section";
 import SampleCards from "@/components/ui/sample-section";

@@ -22,7 +22,6 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-between p-8 pb-20 bg-white relative h-32 md:h-36 z-50">
-      {/* Left Nav Items */}
       <div className="hidden md:flex flex-1 gap-8">
         {leftNavItems.map((item, index) => (
           <NavLinks
@@ -41,6 +40,7 @@ const Navbar = () => {
               src="/images/logo/paperie-logo.png"
               alt="Paperie Logo"
               fill
+              sizes="30%"
               className="object-contain pt-15 mt-2"
             />
           </div>

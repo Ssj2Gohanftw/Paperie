@@ -19,7 +19,7 @@ const images = [
   },
   {
     id: 4,
-    src: "/images/08cf49e6-0d9e-4035-8887-7ef44eac7d71.jpeg",
+    src: "/images/17623566-4816-4a69-b855-07a413d381b8.jpeg",
     alt: "Instagram Image 4",
   },
   {
@@ -29,7 +29,7 @@ const images = [
   },
   {
     id: 6,
-    src: "/images/A4575548-F10E-4EF1-A139-4853CE7249AA.jpeg",
+    src: "/images/IMG_5778.jpeg",
     alt: "Instagram Image 6",
   },
 ];

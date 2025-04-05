@@ -19,7 +19,6 @@ const IntroSection = () => {
         </h1>
       </div>
 
-      {/* Description */}
       <div className="w-full text-center">
         <p className=" text-base sm:text-xl md:text-2xl max-w-3xl mx-auto">
           Paperie Goa is all about using bespoke design to create fully custom

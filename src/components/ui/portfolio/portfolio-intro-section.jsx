@@ -5,10 +5,10 @@ import Image from "next/image";
 const PortfolioIntroSection = () => {
   return (
     <>
-      <h1 className="text-4xl font-serif mb-4 text-[#A79C92]">
+      <h1 className="text-4xl mb-4 ">
         Browse Our <span className="italic">Favorite</span> Weddings
       </h1>
-      <p className="text-lg text-[#A79C92] mb-8 max-w-2xl mx-auto">
+      <p className="text-lg  mb-8 max-w-2xl mx-auto">
         Explore how we have worked with couples to bring their signature wedding
         branding to life throughout their wedding stationery.
       </p>
@@ -28,12 +28,12 @@ const PortfolioIntroSection = () => {
               height={450}
               className="mx-auto mb-4"
             />
-            <h2 className="text-[20px] leading-tight font-serif text-[#A79C92] uppercase tracking-wide max-w-[280px] mx-auto">
+            <h2 className="text-[20px] leading-tight font-serif  uppercase tracking-wide max-w-[280px] mx-auto">
               {wedding.name}
             </h2>
             <Link
-              href={`/gallery/${wedding.slug}`}
-              className="text-[12px] font-semibold tracking-widest text-[#A79C92] uppercase inline-block mt-2 border-b border-gray-400 pb-1 hover:text-black"
+              href={`gallery/${wedding.slug}`}
+              className="text-[12px] font-semibold tracking-widest  uppercase inline-block mt-2 border-b border-gray-400 pb-1 hover:text-black"
             >
               View The Gallery
             </Link>

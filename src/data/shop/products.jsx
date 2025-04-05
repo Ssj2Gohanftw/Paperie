@@ -2,9 +2,9 @@ const slugify = (text) => {
   return text
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/[^\w\-]+/g, "") // Remove special characters
-    .replace(/\-\-+/g, "-"); // Replace multiple hyphens
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
 };
 const invitationCards = [
   {

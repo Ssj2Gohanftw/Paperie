@@ -1,50 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-
-const galleryData = {
-  "paulina-markus": {
-    title: "Paulina & Markus' New York City Wedding",
-    images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
-    ],
-    description:
-      "A stunning wedding in the heart of New York City, featuring elegant invitations and breathtaking decor.",
-  },
-  "victoria-ryan": {
-    title: "Victoria & Ryan's Sicily Wedding",
-    images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
-    ],
-    description:
-      "A beautiful celebration in Sicily, blending traditional charm with modern elegance.",
-  },
-  "robyn-brad": {
-    title: "Robyn & Brad's Shadowbrook Wedding",
-    images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
-    ],
-    description:
-      "An intimate and romantic wedding at Shadowbrook, featuring custom stationery and luxurious details.",
-  },
-  "jamie-chris": {
-    title: "Jamie & Chris' Cedar Lakes Estate Wedding",
-    images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
-    ],
-    description:
-      "A magical wedding at Cedar Lakes Estate, designed with personalized invitations and artistic details.",
-  },
-};
-
+import { galleryData } from "@/data/portfolio/gallery/gallery-info";
 const GalleryPage = () => {
   const { slug } = useParams();
   const wedding = galleryData[slug];
@@ -59,7 +16,7 @@ const GalleryPage = () => {
 
   return (
     <div className="container mx-auto px-8 py-16 text-center">
-      <h1 className="text-4xl font-serif text-[#A79C92]">{wedding.title}</h1>
+      <h1 className="text-4xl font-bold">{wedding.title}</h1>
       <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
         {wedding.description}
       </p>

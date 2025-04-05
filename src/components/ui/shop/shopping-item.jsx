@@ -43,7 +43,7 @@ const ShoppingItem = ({ products }) => {
                   <CardDescription>{product.description}</CardDescription>
                   <p className="mt-2 font-semibold">{product.price}</p>
                   <Link href={`/shop/${product.slug}`}>
-                    <Button variant="link">Buy Now</Button>
+                    <Button variant="outline">Buy Now</Button>
                   </Link>
                 </CardContent>
               </Card>

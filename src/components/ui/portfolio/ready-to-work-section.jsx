@@ -24,10 +24,10 @@ const WorkTogetherSection = () => {
       </div>
 
       <div className="text-left">
-        <p className="text-sm uppercase tracking-widest text-[#A79C92] mb-2">
+        <p className="text-sm uppercase tracking-widest  mb-2">
           You Love Our Portfolio And You&apos;re
         </p>
-        <h2 className="text-[42px] text-[#A79C92] font-serif leading-tight">
+        <h2 className="text-[42px]  font-serif leading-tight">
           Ready to Work <br /> Together?
         </h2>
         <p className="text-lg text-gray-600 mt-4 mb-8 max-w-lg">
