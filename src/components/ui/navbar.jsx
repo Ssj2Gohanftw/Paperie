@@ -21,7 +21,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between p-8 pb-20 bg-white relative h-32 md:h-36 z-50">
+    <nav className="flex items-center justify-between p-8 pb-35 mt-10 bg-white relative h-60 md:h-36 z-50">
       <div className="hidden md:flex flex-1 gap-8">
         {leftNavItems.map((item, index) => (
           <NavLinks
@@ -35,13 +35,13 @@ const Navbar = () => {
 
       <div className="flex flex-1 justify-center">
         <Link href="/">
-          <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center p-2">
+          <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center ">
             <Image
               src="/images/logo/paperie-logo.png"
               alt="Paperie Logo"
               fill
-              sizes="30%"
-              className="object-contain pt-15 mt-2"
+              sizes="20%"
+              className="object-contain pt-15 mt-2 py-2"
             />
           </div>
         </Link>
