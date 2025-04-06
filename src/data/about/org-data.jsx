@@ -24,18 +24,18 @@ const values = [
 const teamMembers = [
   {
     name: "Ratisha Nicola",
-    image: "/images/about/03.jpg",
+    image: "/images/Ratisha.jpg",
     role: "Founder",
   },
-  {
-    name: "Emma Johnson",
-    image: "/images/about/04.jpg",
-    role: "Design",
-  },
-  {
-    name: "Samantha Dias",
-    image: "/images/about/05.jpg",
-    role: "Marketing",
-  },
+  // {
+  //   name: "Emma Johnson",
+  //   image: "/images/about/04.jpg",
+  //   role: "Design",
+  // },
+  // {
+  //   name: "Samantha Dias",
+  //   image: "/images/about/05.jpg",
+  //   role: "Marketing",
+  // },
 ];
 export { values, teamMembers };

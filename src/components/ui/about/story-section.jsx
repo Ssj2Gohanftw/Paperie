@@ -28,17 +28,25 @@ const StorySection = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-4">Crafted with Love</h3>
             <p className="text-gray-700 mb-6">
-              Founded in 2018, Paperie has grown from a small home studio to a
-              beloved brand known for its attention to detail and commitment to
-              quality. Every product that leaves our workshop is crafted with
-              care, using only the finest materials sourced from sustainable
-              suppliers.
+              With a passion for sophisticated design and love for beautiful
+              paper, Ratisha started Paperie-Goa in the year 2017. From
+              conducting consultations to understanding trends to memorising
+              etiquette, she says she learned so much in these years. Her
+              attention to detail and commitment to quality have helped her
+              build a strong reputation. Ratisha believes that a wedding
+              invitation is more than just paper—it reflects the couple&apos;s
+              style and sets the tone for their wedding. Her dedication has made
+              her a well-known name in Goa&apos;s wedding industry.
             </p>
             <p className="text-gray-700">
-              Our design team draws inspiration from nature, architecture, and
-              timeless elegance to create stationery that stands out. We believe
-              that paper products should not only be functional but also serve
-              as keepsakes that capture memories for years to come.
+              Ratisha's design process ensures each wedding invitation is both
+              perfect and personal. It starts with a consultation to gather
+              details like the date, quantity, and the couple&apos;s
+              vision—including colors and design preferences. She prefers
+              in-person meetings to better understand their style. While Ratisha
+              handles design, printing, and coordination, her sisters and mother
+              help assemble the invitations, creating beautiful pieces that
+              reflect each couple&apos;s unique story.
             </p>
           </div>
         </div>
