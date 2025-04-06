@@ -1,27 +1,27 @@
-const weddings = [
+const events = [
   {
     id: 1,
-    name: "Paulina & Markus' New York City Wedding",
-    image: "/images/wedding.png",
-    slug: "paulina-markus",
+    name: "Shawnal & Awina's Wedding",
+    image: "/images/d682fff7-265e-4229-9a47-cb1c1f2bd32e.JPG",
+    slug: "shawnal-awina",
   },
   {
     id: 2,
-    name: "Victoria & Ryan's Sicily Wedding",
-    image: "/images/wedding.png",
-    slug: "victoria-ryan",
+    name: "Lenny and Manjunath's Wedding",
+    image: "/images/IMG_2476.JPG",
+    slug: "lenny-manjunath",
   },
   {
     id: 3,
-    name: "Robyn & Brad's Shadowbrook Wedding",
-    image: "/images/wedding.png",
-    slug: "robyn-brad",
+    name: "Richa & Milton's Wedding",
+    image: "/images/fd5ba610-e8e1-479c-80ba-c81d08d15438.jpeg",
+    slug: "richa-milton",
   },
   {
     id: 4,
-    name: "Jamie & Chris' Cedar Lakes Estate Wedding",
-    image: "/images/wedding.png",
-    slug: "jamie-chris",
+    name: "Sweezel & Aaron's Wedding",
+    image: "/images/IMG_1225.JPG",
+    slug: "sweezel-aaron",
   },
 ];
 
@@ -51,4 +51,4 @@ const additionalWork = [
     link: "#",
   },
 ];
-export { weddings, additionalWork };
+export { events, additionalWork };

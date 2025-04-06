@@ -5,7 +5,7 @@ const HeroSection = () => {
     <div className="relative h-[70vh] w-full">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/about/01.jpg"
+          src="/images/about/about-us-bg.jpg"
           alt="Paperie About Us Background"
           fill
           className="object-cover"

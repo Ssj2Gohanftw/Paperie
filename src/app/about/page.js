@@ -1,4 +1,4 @@
-import ContactSection from "@/components/ui/about/contact-cta-section";
+// import ContactSection from "@/components/ui/about/contact-cta-section";
 import HeroSection from "@/components/ui/about/hero-section";
 import OurValuesSection from "@/components/ui/about/our-values-section";
 import StorySection from "@/components/ui/about/story-section";
@@ -11,7 +11,7 @@ const AboutPage = () => {
       <StorySection />
       <OurValuesSection />
       <TeamSection />
-      <ContactSection />
+      {/* <ContactSection /> */}
     </div>
   );
 };
