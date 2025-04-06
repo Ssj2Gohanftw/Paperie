@@ -3,9 +3,9 @@ require('dotenv').config();
 
 // imports
 const express = require("express");
-const app = express();
-const port = process.env.PORT || 6942
 const connectDB = require("./db/connect");
+const cors = require('cors');
+
 
 
 // Router imports
@@ -13,6 +13,10 @@ const helloWorldRouter = require('./routes/hello.route');
 const customerRouter = require("./routes/customer.route");
 const transactionRouter = require('./routes/transaction.route');
 
+
+// Variable conf
+const app = express();
+const port = process.env.PORT || 6942;
 
 
 // Helper functions
@@ -24,7 +28,7 @@ const start = async () => {
 
         app.listen(port, () => {
 
-            console.log(`Listening of port ${port}`)
+            console.log(`Listening of port ${port}`);
 
         })
 
@@ -38,6 +42,7 @@ const start = async () => {
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 
 // Routes

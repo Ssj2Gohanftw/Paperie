@@ -19,9 +19,9 @@ export default async function ProductPage({ params }) {
         className="w-64 h-64 object-cover"
       />
       <p className="text-lg font-bold">{product.description}</p>
-      <p className="text-2xl font-semibold">{product.price}</p>
+      <p className="text-2xl font-semibold">₹ {product.price}</p>
       <div className="flex justify-center mt-4">
-        <CheckoutForm />
+        <CheckoutForm price={product.price}/>
       </div>
     </div>
   );
