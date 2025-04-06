@@ -41,7 +41,7 @@ const EventSection = () => {
                   width={500}
                   height={200}
                   loading="lazy"
-                  className="object-cover transition duration-500 ease-in-out"
+                  className=" w-100 h-100 object-cover transition duration-500 ease-in-out rounded-2xl"
                 />
               </div>
               <div className="mt-2 text-center">
