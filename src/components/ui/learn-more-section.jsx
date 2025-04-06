@@ -33,9 +33,9 @@ const LearnMoreSection = () => {
             <Image
               src={item.src}
               alt={item.alt}
-              width={150}
-              height={150}
-              className="rounded-lg object-cover"
+              width={250}
+              height={250}
+              className="w-50 h-50 rounded-lg object-cover"
             />
           </Link>
           <h2 className="text-xl md:text-2xl font-semibold mt-4">
