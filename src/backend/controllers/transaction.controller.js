@@ -18,6 +18,7 @@ const getAllTransactions = async (req, res) => {
 const createTransaction = async (req, res) => {
 
     try {
+        console.log(req.body);
         const transactions = await Transaction.create(req.body);
         res.status(200).json({ transactions });
     }

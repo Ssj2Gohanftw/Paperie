@@ -130,3 +130,7 @@
     font-family: var(--font-cormorant-garamond), Arial, Helvetica, sans-serif;
   }
 }
+
+.buyBtn{
+  cursor: pointer !important;
+}

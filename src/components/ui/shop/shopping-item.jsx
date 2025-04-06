@@ -41,9 +41,9 @@ const ShoppingItem = ({ products }) => {
                     />
                   </div>
                   <CardDescription>{product.description}</CardDescription>
-                  <p className="mt-2 font-semibold">{product.price}</p>
+                  <p className="mt-2 font-semibold">₹ {product.price}</p>
                   <Link href={`/shop/${product.slug}`}>
-                    <Button variant="outline">Buy Now</Button>
+                    <Button className={"buyBtn"} variant="outline">Buy Now</Button>
                   </Link>
                 </CardContent>
               </Card>
