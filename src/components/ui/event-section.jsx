@@ -11,17 +11,17 @@ const eventpics = [
   {
     src: "/images/Shenon-3.jpeg",
     alt: "Featured Image 1",
-    description: "Shenon's Wedding - Slide 1",
+    //description: "Shenon's Wedding - Slide 1",
   },
   {
     src: "/images/Shenon-8.jpeg",
     alt: "Featured Image 2",
-    description: "Shenon's Wedding - Slide 2",
+    //description: "Shenon's Wedding - Slide 2",
   },
   {
-    src: "/images/Shenon-3.jpeg",
+    src: "/images/Shenon-22.jpeg",
     alt: "Featured Image 3",
-    description: "Shenon's Wedding - Slide 3",
+    //description: "Shenon's Wedding - Slide 3",
   },
 ];
 const EventSection = () => {

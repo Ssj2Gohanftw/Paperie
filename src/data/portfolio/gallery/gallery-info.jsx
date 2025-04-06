@@ -1,43 +1,44 @@
+// src/data/portfolio/gallery/gallery-info.jsx
 const galleryData = {
-  "paulina-markus": {
-    title: "Paulina & Markus' New York City Wedding",
+  "shawnal-awina": {
+    title: "Shawnal & Awina's Wedding",
     images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
+      "/images/shawn1.jpg",
+      "/images/shawn2.jpg",
+
     ],
     description:
-      "A stunning wedding in the heart of New York City, featuring elegant invitations and breathtaking decor.",
+      "A beautiful wedding celebration in the heart of the city, full of love and unforgettable moments.",
   },
-  "victoria-ryan": {
-    title: "Victoria & Ryan's Sicily Wedding",
+  "lenny-manjunath": {
+    title: "Lenny & Manjunath's Wedding",
     images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
+      "/images/lenny.JPG",
+      "/images/lenny2.JPG",
+      "/images/lenny3.jpg",
     ],
     description:
-      "A beautiful celebration in Sicily, blending traditional charm with modern elegance.",
+      "An elegant wedding celebration with beautiful décor, filled with heartfelt moments and timeless memories.",
   },
-  "robyn-brad": {
-    title: "Robyn & Brad's Shadowbrook Wedding",
+  "richa-milton": {
+    title: "Richa & Milton's Wedding",
     images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
+      "/images/rim.jpeg",
+      "/images/rim2.JPeG",
     ],
     description:
-      "An intimate and romantic wedding at Shadowbrook, featuring custom stationery and luxurious details.",
+      "A stunning wedding that was a perfect blend of tradition and modernity, with beautiful flowers and decorations.",
   },
-  "jamie-chris": {
-    title: "Jamie & Chris' Cedar Lakes Estate Wedding",
+  "sweezel-aaron": {
+    title: "Sweezel & Aaron's Wedding",
     images: [
-      "/images/wedding.png",
-      "/images/wedding.png",
-      "/images/wedding.png",
+      "/images/swiz.JPG",
+      "/images/swiz2.JPG",
+  
     ],
     description:
-      "A magical wedding at Cedar Lakes Estate, designed with personalized invitations and artistic details.",
+      "A heartfelt wedding with vibrant colors and joyful moments, capturing the essence of true love.",
   },
 };
+
 export { galleryData };

@@ -17,7 +17,7 @@ const StorySection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
           <div>
             <Image
-              src="/images/about/02.jpg"
+              src="/images/about/wedders.jpg"
               alt="Paperie workshop"
               width={600}
               height={400}
