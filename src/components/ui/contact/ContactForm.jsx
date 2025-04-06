@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    planner: '',
-    weddingDate: '',
-    venue: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    planner: "",
+    weddingDate: "",
+    venue: "",
     services: [],
   });
 
   const serviceOptions = [
-    'Save the Dates',
-    'Wedding Invitations',
-    'Wedding Day Details (menus, programs, table numbers, seating cards, etc.)',
-    'Other Event Invitations',
-    'Personal Stationery',
+    "Save the Dates",
+    "Wedding Invitations",
+    "Wedding Day Details (menus, programs, table numbers, seating cards, etc.)",
+    "Other Event Invitations",
+    "Personal Stationery",
   ];
 
   const toggleService = (option) => {
@@ -40,7 +40,6 @@ const ContactForm = () => {
 
   return (
     <form className="w-full max-w-4xl bg-[#F3ECE6] p-8 rounded-xl shadow-md text-[#A79C92] font-[var(--font-cormorant-garamond)]">
-      {/* Full Name & Email */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
           <label>Full Name</label>
@@ -70,7 +69,6 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Phone & Planner */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
           <label>Phone number</label>
@@ -100,7 +98,6 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Date & Venue */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
           <label>Wedding Date</label>
@@ -129,9 +126,10 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Services */}
       <div className="mb-6">
-        <label className="block mb-2">What design services are you interested in?</label>
+        <label className="block mb-2">
+          What design services are you interested in?
+        </label>
         <p className="text-sm mb-2">Check all that apply</p>
         <div className="space-y-2">
           {serviceOptions.map((option) => (
@@ -149,7 +147,6 @@ const ContactForm = () => {
         <p className="text-sm mt-2">* This question is required</p>
       </div>
 
-      {/* Submit */}
       <div className="text-right">
         <button
           type="submit"
