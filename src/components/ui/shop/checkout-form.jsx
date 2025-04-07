@@ -151,9 +151,9 @@ const CheckoutForm = (props) => {
       <Dialog open={upiQrOpen} onOpenChange={(open) => { if (!upiQrOpen) return; }} hideClose>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle className={"text-3xl"}>Money pay time</DialogTitle>
+            <DialogTitle className={"text-3xl"}>Payment</DialogTitle>
             <DialogDescription className="text-xl text-center">
-              gimme money or else no card
+              Scan QR code to complete your order
             </DialogDescription>
           </DialogHeader>
 
