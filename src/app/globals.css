@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -131,6 +133,15 @@
   }
 }
 
-.buyBtn{
+.buyBtn {
   cursor: pointer !important;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background px-4 py-16 flex flex-col items-center">
       <div className="text-center max-w-2xl mb-10">
-        <h1 className="text-5xl uppercase tracking-wide mb-4 font-[var(--font-cormorant-garamond)]">
+        <h1 className="text-5xl uppercase tracking-wide mb-4">
           Contact
         </h1>
         <p className="text-lg">

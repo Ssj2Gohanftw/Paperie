@@ -30,22 +30,28 @@ const SampleCards = () => {
         {imagePaths.map((src, index) => (
           <CarouselItem
             key={index}
-            className="basis-full sm:basis-1/2 md:basis-1/3"
+            className="flex justify-center  basis-full sm:basis-1/2 md:basis-1/3"
           >
-            <Card className="shadow-lg rounded-md overflow-hidden">
+            <Card className="shadow-lg rounded-md overflow-hidden w-90 sm:w-full md:w-full">
               <CardContent className="cursor-grab active:cursor-grabbing">
                 <Image
                   src={src}
                   alt={`Image ${index + 1}`}
                   width={500}
                   height={300}
-                  className="w-full h-auto object-cover"
+                  className="w-90 h-110 object-cover sm:h-auto md:h-auto"
                 />
               </CardContent>
             </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
+        Prev
+      </CarouselPrevious>
+      <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
+        Next
+      </CarouselNext>
     </Carousel>
   );
 };

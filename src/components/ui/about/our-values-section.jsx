@@ -1,5 +1,5 @@
 import Icons from "./icons";
-import { values } from "@/data/about/org-data";
+import { values ,colorClasses} from "@/data/about/org-data";
 const OurValuesSection = () => {
   return (
     <section className="py-16 bg-gray-50">
@@ -15,10 +15,10 @@ const OurValuesSection = () => {
               className="bg-white p-8 rounded-lg shadow-md text-center"
             >
               <div
-                className={`w-16 h-16 bg-${value.iconColor}-100 rounded-full flex items-center justify-center mx-auto mb-4`}
+                className={`w-16 h-16 ${colorClasses[value.iconColor].bg} rounded-full flex items-center justify-center mx-auto mb-4`}
               >
                 <Icons
-                  className={`h-8 w-8 text-${value.iconColor}-500`}
+                  className={`h-8 w-8 ${colorClasses[value.iconColor].text}`}
                   data={value.d}
                 />
               </div>

@@ -42,14 +42,14 @@ const InstagramSection = () => {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         {images.map((image) => (
-          <div key={image.id} className="w-full">
+          <div key={image.id} className="flex justify-center">
             <Image
               src={image.src}
               alt={image.alt}
               width={250}
               height={250}
               loading="lazy"
-              className="w-full h-auto object-cover rounded-lg"
+              className="w-90 h-140  object-cover rounded-lg"
             />
           </div>
         ))}

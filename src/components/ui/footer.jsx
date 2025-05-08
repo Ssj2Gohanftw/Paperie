@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black ">
+    <footer className="bg-white text-black pb-4 w-auto">
       <Separator className="mb-4" />
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-center w-full">
-            <div className="w-full flex justify-center py-1 mb-2 ml-6">
+            <div className="w-auto flex justify-center py-1 mb-2 ml-6">
               <Image
                 width={140}
                 height={100}

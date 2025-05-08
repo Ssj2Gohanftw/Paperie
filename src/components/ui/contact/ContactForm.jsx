@@ -39,7 +39,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="w-full max-w-4xl bg-[#F3ECE6] p-8 rounded-xl shadow-md text-[#A79C92] font-[var(--font-cormorant-garamond)]">
+    <form className="w-full max-w-4xl bg-[#F3ECE6] p-8 rounded-xl shadow-md">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
           <label>Full Name</label>

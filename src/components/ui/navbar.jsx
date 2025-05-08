@@ -35,7 +35,7 @@ const Navbar = () => {
 
       <div className="flex flex-1 justify-center">
         <Link href="/">
-          <div className="relative w-32 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center ">
+          <div className="relative w-50 left-2 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center ">
             <Image
               src="/images/logo/paperie-logo.png"
               alt="Paperie Logo"
@@ -69,7 +69,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-blue-900 text-white md:hidden z-50">
+        <div className="absolute top-full left-0 w-full bg-white/80 backdrop-blur-sm md:hidden z-50">
           <ul className="flex flex-col justify-center text-center space-y-4 p-6">
             {[...leftNavItems, ...rightNavItems].map((item, index) => (
               <li key={index}>
