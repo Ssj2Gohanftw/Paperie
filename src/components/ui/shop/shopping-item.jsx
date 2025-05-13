@@ -27,12 +27,15 @@ const ShoppingItem = ({ products }) => {
               key={product.id}
               className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3"
             >
-              <Card className="shadow-md p-4 m-2">
-                <CardHeader>
-                  <CardTitle>{product.name}</CardTitle>
+              {" "}
+              <Card className="shadow-md h-full transition-transform hover:scale-102 hover:shadow-lg">
+                <CardHeader className="p-3 sm:p-4">
+                  <CardTitle className="text-base sm:text-lg lg:text-xl">
+                    {product.name}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="relative h-48 w-full mb-2">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="relative aspect-square w-full mb-2 overflow-hidden rounded-md">
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -43,19 +46,17 @@ const ShoppingItem = ({ products }) => {
                   <CardDescription>{product.description}</CardDescription>
                   <p className="mt-2 font-semibold">₹ {product.price}</p>
                   <Link href={`/shop/${product.slug}`}>
-                    <Button className={"buyBtn"} variant="outline">Buy Now</Button>
+                    <Button className={"buyBtn"} variant="outline">
+                      Buy Now
+                    </Button>
                   </Link>
                 </CardContent>
               </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
-          Prev
-        </CarouselPrevious>
-        <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
-          Next
-        </CarouselNext>
+        <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[black] px-3 py-1 rounded" />
+        <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[black] px-3 py-1 rounded" />
       </Carousel>
     </section>
   );

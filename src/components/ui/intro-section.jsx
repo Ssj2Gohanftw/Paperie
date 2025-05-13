@@ -8,6 +8,8 @@ const IntroSection = () => {
         alt="Paperie Logo"
         width={200}
         height={200}
+        priority
+        sizes="(max-width: 768px) 150px, 200px"
         className="mb-4"
       />
       <p className="tracking-[0.3em]  font-normal uppercase text-xs sm:text-sm mb-4">

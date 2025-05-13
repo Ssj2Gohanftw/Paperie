@@ -34,11 +34,15 @@ const SampleCards = () => {
           >
             <Card className="shadow-lg rounded-md overflow-hidden w-90 sm:w-full md:w-full">
               <CardContent className="cursor-grab active:cursor-grabbing">
+                {" "}
                 <Image
                   src={src}
                   alt={`Image ${index + 1}`}
                   width={500}
                   height={300}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw"
+                  quality={85}
                   className="w-90 h-110 object-cover sm:h-auto md:h-auto"
                 />
               </CardContent>
@@ -46,12 +50,8 @@ const SampleCards = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
-        Prev
-      </CarouselPrevious>
-      <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
-        Next
-      </CarouselNext>
+      <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[black] px-3 py-1 rounded" />
+      <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[black] px-3 py-1 rounded" />
     </Carousel>
   );
 };

@@ -39,17 +39,20 @@ const InstagramSection = () => {
     <section className="w-full p-4">
       <h2 className="text-2xl font-semibold text-center mb-4 ">
         Our Instagram Content
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-        {images.map((image) => (
+      </h2>{" "}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {images.map((image, index) => (
           <div key={image.id} className="flex justify-center">
             <Image
               src={image.src}
               alt={image.alt}
-              width={250}
-              height={250}
-              loading="lazy"
-              className="w-90 h-140  object-cover rounded-lg"
+              width={400}
+              height={400}
+              loading={index < 3 ? "eager" : "lazy"}
+              quality={85}
+              sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, 33vw"
+              className="w-full h-[400px] object-cover rounded-lg"
+              priority={index === 0}
             />
           </div>
         ))}

@@ -14,6 +14,24 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+
+const adminLinks = [
+  {
+    id: 1,
+    link: "/admin",
+    sectionName: "Dashboard",
+  },
+  {
+    id: 2,
+    link: "/admin/products",
+    linkName: "Products",
+  },
+  {
+    id: 1,
+    link: "/admin/orders",
+    linkName: "Paperie Admin",
+  },
+];
 import { Home, Package, Users, Settings, Menu, X } from "lucide-react";
 
 const AdminSidebar = () => {

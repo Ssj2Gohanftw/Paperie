@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -7,27 +7,37 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
 const eventpics = [
   {
     src: "/images/Shenon-3.jpeg",
     alt: "Featured Image 1",
-    //description: "Shenon's Wedding - Slide 1",
   },
   {
     src: "/images/Shenon-8.jpeg",
     alt: "Featured Image 2",
-    //description: "Shenon's Wedding - Slide 2",
   },
   {
     src: "/images/Shenon-22.jpeg",
     alt: "Featured Image 3",
-    //description: "Shenon's Wedding - Slide 3",
   },
 ];
+
 const EventSection = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div className="min-h-[300px] bg-gray-100 animate-pulse" />;
+  }
+
   return (
     <section className="w-full p-4">
-      <h1 className=" text-4xl md:text-6xl px-6 text-center mb-4">
+      <h1 className="text-4xl md:text-6xl px-6 text-center mb-4">
         Some of Our Favourite Cards
       </h1>
       <Carousel className="relative">
@@ -35,17 +45,14 @@ const EventSection = () => {
           {eventpics.map((slide, index) => (
             <CarouselItem key={index} className="relative">
               <div className="w-full flex justify-center">
-                <Image
+                <OptimizedImage
                   src={slide.src}
                   alt={slide.alt}
                   width={500}
                   height={200}
-                  loading="lazy"
-                  className=" w-100 h-100 object-cover transition duration-500 ease-in-out rounded-2xl"
+                  priority={index === 0}
+                  className="w-100 h-100 object-cover transition duration-500 ease-in-out rounded-2xl"
                 />
-              </div>
-              <div className="mt-2 text-center">
-                <p className="text-lg md:text-xl ">{slide.description}</p>
               </div>
             </CarouselItem>
           ))}

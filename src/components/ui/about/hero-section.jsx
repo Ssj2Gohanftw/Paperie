@@ -10,7 +10,9 @@ const HeroSection = () => {
           fill
           className="object-cover"
           priority
-          quality={100}
+          quality={85}
+          sizes="100vw"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-black/30"></div>
       </div>

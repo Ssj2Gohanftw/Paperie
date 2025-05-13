@@ -21,12 +21,16 @@ const PortfolioIntroSection = () => {
               index % 2 !== 0 ? "mt-24" : ""
             }`}
           >
+            {" "}
             <Image
               src={event.image}
               alt={event.name}
               width={350}
               height={450}
-              className="mx-auto mb-4"
+              quality={85}
+              loading={index < 2 ? "eager" : "lazy"}
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 350px"
+              className="mx-auto mb-4 transform transition-transform duration-300 hover:scale-105"
             />
             <h2 className="text-[20px] leading-tight font-serif  uppercase tracking-wide max-w-[280px] mx-auto">
               {event.name}

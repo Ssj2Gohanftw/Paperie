@@ -1,32 +1,42 @@
+// app/layout.jsx
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/ui/navbar";
-import Footer from "@/components/ui/footer";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata = {
-  title: "Paperie",
-  description: "Wedding Card Website",
-  icons: {
-    icon: "/crs.ico",
-    shortcut: "/crs.ico",
-    apple: "/crs.ico",
-  },
+  title: "Paperie Goa",
+  description: "One-of-a-kind wedding stationery design in Curchorem, Goa",
+  metadataBase: new URL("https://paperiegoa.com"),
+  themeColor: "#ffffff",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${cormorantGaramond.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+    <html lang="en" className={cormorantGaramond.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

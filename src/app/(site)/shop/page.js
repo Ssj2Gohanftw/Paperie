@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import ShoppingItem from "@/components/ui/shop/shopping-item";
-import { invitationCards, envelopes } from "../../data/shop/products.jsx";
+import { invitationCards, envelopes } from "@/data/shop/products";
 const ShopPage = () => {
   return (
     <div className=" pt-5">
