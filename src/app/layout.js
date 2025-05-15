@@ -1,4 +1,3 @@
-// app/layout.jsx
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
@@ -15,7 +14,6 @@ export const metadata = {
   title: "Paperie Goa",
   description: "One-of-a-kind wedding stationery design in Curchorem, Goa",
   metadataBase: new URL("https://paperiegoa.com"),
-  themeColor: "#ffffff",
 };
 
 export const viewport = {

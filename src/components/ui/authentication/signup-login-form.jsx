@@ -19,7 +19,7 @@ const AuthenticationForm = () => {
           <TabsTrigger value="registration">Register</TabsTrigger>
         </TabsList>
         <TabsContent value="login">
-          <Card>
+          <Card className="flex mb-10 ">
             <CardHeader>
               <CardTitle>Login</CardTitle>
               <CardDescription>Login in to your account</CardDescription>
@@ -34,13 +34,13 @@ const AuthenticationForm = () => {
                 <Input id="email" />
               </div>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex justify-center">
               <Button>Login</Button>
             </CardFooter>
           </Card>
         </TabsContent>
         <TabsContent value="registration">
-          <Card>
+          <Card className="mb-10">
             <CardHeader>
               <CardTitle>Sign Up</CardTitle>
               <CardDescription>Create an account!</CardDescription>
@@ -59,7 +59,7 @@ const AuthenticationForm = () => {
                 <Input id="password" />
               </div>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex justify-center">
               <Button>Sign Up</Button>
             </CardFooter>
           </Card>

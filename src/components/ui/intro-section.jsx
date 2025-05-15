@@ -17,7 +17,7 @@ const IntroSection = () => {
       </p>
       <div className="w-full text-center mb-4">
         <h1 className="font-thin text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.16em] font-[Magnolia]  leading-[1.1] max-w-4xl mx-auto">
-          ONE-OF-A-KIND WEDDING STATIONERY DESIGN in Curchorem, Goa
+          ONE-OF-A-KIND WEDDING STATIONERY DESIGN in Curchorem,Goa
         </h1>
       </div>
 

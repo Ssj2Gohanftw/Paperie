@@ -6,10 +6,10 @@ const nextConfig = {
     formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 60,
   },
-  experimental: {
-    optimizeCss: true,
-    optimizeServerComponents: true,
-  },
+  // experimental: {
+  //   optimizeCss: true,
+  //   optimizeServerComponents: true,
+  // },
   headers: async () => {
     return [
       {
