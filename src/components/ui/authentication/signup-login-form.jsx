@@ -26,16 +26,25 @@ const AuthenticationForm = () => {
             </CardHeader>
             <CardContent>
               <div>
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name" className="pb-1">
+                  Name
+                </Label>
                 <Input id="name" />
               </div>
               <div>
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="pb-1 pt-1">
+                  Email
+                </Label>
                 <Input id="email" />
               </div>
             </CardContent>
             <CardFooter className="flex justify-center">
-              <Button>Login</Button>
+              <Button
+                variant="secondary"
+                className="bg-green-500 hover:bg-green-700 text-white"
+              >
+                Login
+              </Button>
             </CardFooter>
           </Card>
         </TabsContent>
@@ -60,7 +69,12 @@ const AuthenticationForm = () => {
               </div>
             </CardContent>
             <CardFooter className="flex justify-center">
-              <Button>Sign Up</Button>
+              <Button
+                variant="secondary"
+                className="bg-green-500 hover:bg-green-700 text-white"
+              >
+                Sign Up
+              </Button>
             </CardFooter>
           </Card>
         </TabsContent>

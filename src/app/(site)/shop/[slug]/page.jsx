@@ -13,15 +13,17 @@ export default async function ProductPage({ params }) {
   return (
     <div className="flex flex-col justify-center items-center  mx-auto p-4 pt-5 mt-2">
       <h1 className="text-4xl font-bold">{product.name}</h1>
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-64 h-64 object-cover"
-      />
-      <p className="text-lg font-bold">{product.description}</p>
+      <div className="flex items-center ">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="mt-3 ml-4 w-64 h-64 object-cover "
+        />
+        <p className="ml-7 text-lg font-bold">{product.description}</p>
+      </div>
       <p className="text-2xl font-semibold">₹ {product.price}</p>
       <div className="flex justify-center mt-4">
-        <CheckoutForm price={product.price}/>
+        <CheckoutForm price={product.price} />
       </div>
     </div>
   );

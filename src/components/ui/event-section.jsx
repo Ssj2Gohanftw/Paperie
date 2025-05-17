@@ -41,7 +41,7 @@ const EventSection = () => {
         Some of Our Favourite Cards
       </h1>
       <Carousel className="relative">
-        <CarouselContent className="relative w-full max-w-4xl mx-auto">
+        <CarouselContent className="cursor-grab active:cursor-grabbing relative w-full max-w-4xl mx-auto">
           {eventpics.map((slide, index) => (
             <CarouselItem key={index} className="relative">
               <div className="w-full flex justify-center">
@@ -57,10 +57,10 @@ const EventSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
+        <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-black px-3 py-1 rounded ">
           Prev
         </CarouselPrevious>
-        <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-3 py-1 rounded">
+        <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-black px-3 py-1 rounded">
           Next
         </CarouselNext>
       </Carousel>

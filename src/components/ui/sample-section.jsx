@@ -34,7 +34,6 @@ const SampleCards = () => {
           >
             <Card className="shadow-lg rounded-md overflow-hidden w-90 sm:w-full md:w-full">
               <CardContent className="cursor-grab active:cursor-grabbing">
-                {" "}
                 <Image
                   src={src}
                   alt={`Image ${index + 1}`}
