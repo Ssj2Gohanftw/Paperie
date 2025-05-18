@@ -21,7 +21,7 @@ import {
 import { Button } from "../button";
 import { Input } from "../input";
 import { useForm } from "react-hook-form";
-import QrCode from 'qrcode';
+import QrCode from "qrcode";
 import axios from "axios";
 
 const Spinner = () => {
@@ -29,26 +29,18 @@ const Spinner = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm">
       <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
     </div>
-
   );
-}
+};
 
 const Toast = () => {
-
   return (
-
-    <div className="fixed z-50 bottom-1/2 left-3/4 transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-300 opacity-100">
+    <div className="fixed z-50 bottom-1/2 left-3/4 transform -translate-x-1/2 -translate-y-1/2  transition-opacity duration-300 opacity-100">
       <div className="bg-green-300 text-white px-6 py-3 rounded-xl shadow-lg text-center text-lg font-medium">
         ✅ Submitted Successfully!
       </div>
     </div>
-
-
-
   );
-
-}
-
+};
 
 const CheckoutForm = (props) => {
   const [open, setOpen] = useState(false);
@@ -64,33 +56,27 @@ const CheckoutForm = (props) => {
       email: "",
       address: "",
       phoneNo: "",
-      transactionId: ""
+      transactionId: "",
       // quote: "",
     },
   });
 
-
-
   const ewwPhI = async (amount) => {
-
     let { address, email, name, phoneNo: phone } = form.getValues();
-    let apiFormData = { address, email, name, phone }
-
+    let apiFormData = { address, email, name, phone };
 
     setLoading(true);
-    const request = await axios.post("http://localhost:6942/api/customer",
-      { ...apiFormData }
-    );
+    const request = await axios.post("http://localhost:6942/api/customer", {
+      ...apiFormData,
+    });
 
     // reset the dialog form and close the popup
     form.reset();
     setOpen(false);
 
-
     const { _id: userId } = request.data.customer;
 
-
-    // set variables 
+    // set variables
     setUid(userId);
     setLoading(false);
     setUpiQrOpen(true);
@@ -101,35 +87,29 @@ const CheckoutForm = (props) => {
     // create qr and set the image
     const url = await QrCode.toDataURL(upiURI, { width: 350 });
     setQrUrl(url);
-
-
-  }
+  };
 
   const handleTransaction = async (data) => {
-
     console.log(uid);
     const { transactionId } = data;
 
     // send transaction to backend
-    await axios.post("http://localhost:6942/api/transaction",
-      {
-        transactionId,
-        customer: uid,
-      }
-    )
-
+    await axios.post("http://localhost:6942/api/transaction", {
+      transactionId,
+      customer: uid,
+    });
 
     // Close the upi qr dialog
     setUpiQrOpen(false);
 
-    // Send toast notification 
+    // Send toast notification
     setSuccess(true);
 
     // close the toast after 3 seconds
     setTimeout(() => {
-      setSuccess(false)
+      setSuccess(false);
     }, 3000);
-  }
+  };
 
   // sukanikadeak function
   const onSubmit = (data) => {
@@ -137,10 +117,8 @@ const CheckoutForm = (props) => {
     setOpen(false);
   };
 
-
   return (
     <>
-
       {/* This is for showing message after submisisno */}
       {success && <Toast />}
 
@@ -148,7 +126,13 @@ const CheckoutForm = (props) => {
       {loading && <Spinner />}
 
       {/* dialog for transaction */}
-      <Dialog open={upiQrOpen} onOpenChange={(open) => { if (!upiQrOpen) return; }} hideClose>
+      <Dialog
+        open={upiQrOpen}
+        onOpenChange={(open) => {
+          if (!upiQrOpen) return;
+        }}
+        hideClose
+      >
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle className={"text-3xl"}>Payment</DialogTitle>
@@ -157,7 +141,9 @@ const CheckoutForm = (props) => {
             </DialogDescription>
           </DialogHeader>
 
-          {qrUrl && <img className="block mx-auto" src={qrUrl} alt="UPI QR Code" />}
+          {qrUrl && (
+            <img className="block mx-auto" src={qrUrl} alt="UPI QR Code" />
+          )}
 
           <Form {...form}>
             <form
@@ -177,21 +163,25 @@ const CheckoutForm = (props) => {
                       <Input
                         type="text"
                         placeholder="Your transaction id after UPI payment"
-                        {...field} />
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-
               <div className="flex justify-end">
-                <Button type="submit" className="buyBtn" disabled={!form.formState.isValid} >Submit Transaction</Button>
-
+                <Button
+                  type="submit"
+                  className="buyBtn"
+                  disabled={!form.formState.isValid}
+                >
+                  Submit Transaction
+                </Button>
               </div>
             </form>
           </Form>
-
         </DialogContent>
       </Dialog>
 
@@ -249,12 +239,9 @@ const CheckoutForm = (props) => {
               <FormField
                 control={form.control}
                 name="address"
-                rules={
-                  {
-                    required: "Address is required",
-                  }
-                }
-
+                rules={{
+                  required: "Address is required",
+                }}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Address</FormLabel>
@@ -312,8 +299,9 @@ const CheckoutForm = (props) => {
                   type="submit"
                   onClick={() => ewwPhI(props.price)}
                   disabled={!form.formState.isValid}
-
-                >Place Order</Button>
+                >
+                  Place Order
+                </Button>
               </div>
             </form>
           </Form>

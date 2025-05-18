@@ -1,24 +1,21 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const transactionSchema = mongoose.Schema({
+const transactionSchema = Schema({
+  transactionId: {
+    type: String,
+    required: [true, "Gimme Transaction id fas fas"],
+  },
 
-    transactionId: {
-        type:String,
-        required:[true,"Gimme Transaction id fas fas"]
-    },
+  customer: {
+    type: Schema.Types.ObjectId,
+    ref: "Customer",
+    required: true,
+  },
 
-    customer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"Customer",
-        required:true,
-    },
-
-    completed:{
-        type:Boolean,
-        default: false
-    }
-
+  completed: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-
-module.exports = mongoose.model('Transaction',transactionSchema);
+export default model("Transaction", transactionSchema);

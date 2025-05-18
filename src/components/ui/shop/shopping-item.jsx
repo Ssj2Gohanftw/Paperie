@@ -27,14 +27,13 @@ const ShoppingItem = ({ products }) => {
               key={product.id}
               className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3"
             >
-              {" "}
               <Card className="shadow-md h-full transition-transform hover:scale-102 hover:shadow-lg">
                 <CardHeader className="p-3 sm:p-4">
-                  <CardTitle className="text-base sm:text-lg lg:text-xl">
+                  <CardTitle className="text-xl md:text-2xl sm:text-lg lg:text-xl">
                     {product.name}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="p-3 sm:p-4">
+                <CardContent className="p-3 mt-0 sm:p-4">
                   <div className="relative aspect-square w-full mb-2 overflow-hidden rounded-md">
                     <Image
                       src={product.image}
