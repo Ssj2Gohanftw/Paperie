@@ -23,6 +23,7 @@ import { Input } from "../input";
 import { useForm } from "react-hook-form";
 import QrCode from "qrcode";
 import axios from "axios";
+import Image from "next/image";
 
 const Spinner = () => {
   return (
@@ -142,7 +143,7 @@ const CheckoutForm = (props) => {
           </DialogHeader>
 
           {qrUrl && (
-            <img className="block mx-auto" src={qrUrl} alt="UPI QR Code" />
+            <Image className="block mx-auto" src={qrUrl} alt="UPI QR Code" />
           )}
 
           <Form {...form}>

@@ -25,6 +25,9 @@ const CustomerSchema = new Schema({
     type: String,
     default: "",
   },
+  user: {
+    type: Schema.Types.ObjectId,
+  },
 });
 
 export default model("Customer", CustomerSchema);

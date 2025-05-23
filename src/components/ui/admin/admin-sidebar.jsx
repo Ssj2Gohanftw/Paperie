@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 
 const items = [
   {
@@ -53,10 +54,10 @@ const AdminSidebar = () => {
               {items.map((item) => (
                 <SidebarMenuItem className="mt-6" key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

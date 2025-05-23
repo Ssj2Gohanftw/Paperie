@@ -16,6 +16,11 @@ const transactionSchema = Schema({
     type: Boolean,
     default: false,
   },
+  order: {
+    type: Schema.Types.ObjectId,
+    ref: "Order",
+    required: false,
+  },
 });
 
 export default model("Transaction", transactionSchema);

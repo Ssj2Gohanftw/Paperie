@@ -5,33 +5,31 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
 
-export function LoginForm({ className, ...props }) {
+export function SignUpForm({ className, ...props }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const router = useRouter();
-  const searchParams = useSearchParams();
 
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
     setError("");
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const phone = form.phone.value;
+    const confirmPassword = form.confirmPassword.value;
     try {
-      const res = await fetch("../api/auth/login", {
+      const res = await fetch("../api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password, confirmPassword, phone }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Login failed");
-
-      // Redirect to intended page if present
-      const redirect = searchParams.get("redirect") || "/shop";
-      router.replace(redirect);
+      if (!res.ok) throw new Error(data.error || "Sign up failed");
+      // Session cookie is set by the API, so just redirect
+      window.location.href = "/shop";
     } catch (err) {
       setError(err.message);
     } finally {
@@ -46,33 +44,50 @@ export function LoginForm({ className, ...props }) {
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Login to your account</h1>
+        <h1 className="text-2xl font-bold">Create an account!</h1>
         <p className="text-muted-foreground text-sm text-balance">
-          Enter your email below to login to your account
+          Enter your info to get started with us
         </p>
       </div>
       <div className="grid gap-6">
         <div className="grid gap-3">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" type="text" placeholder="John Doe" required />
+        </div>
+        <div className="grid gap-3">
+          <div className="flex items-center">
+            <Label htmlFor="email">Email</Label>
+          </div>
+          <Input
+            id="email"
+            type="email"
+            placeholder="johndoe@example.com"
+            required
+          />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
-            <Link
-              href="#"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
-            >
-              Forgot your password?
-            </Link>
           </div>
           <Input id="password" type="password" required />
+        </div>
+        <div className="grid gap-3">
+          <div className="flex items-center">
+            <Label htmlFor="confirmPassword">Confirm Password</Label>
+          </div>
+          <Input id="confirmPassword" type="password" required />
         </div>
         {error && (
           <div className="text-red-500 text-sm text-center">{error}</div>
         )}
+        <div className="grid gap-3">
+          <div className="flex items-center">
+            <Label htmlFor="phone">Phone</Label>
+          </div>
+          <Input id="phone" type="tel" required />
+        </div>
         <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
+          {loading ? "Signing Up..." : "Sign Up"}
         </Button>
         {/* <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
           <span className="bg-background text-muted-foreground relative z-10 px-2">
@@ -89,9 +104,9 @@ export function LoginForm({ className, ...props }) {
         </Button> */}
       </div>
       <div className="text-center text-sm">
-        Don&apos;t have an account?
-        <Link href="/account/register" className="underline underline-offset-4">
-          Sign up
+        Already have an account?
+        <Link href="/account/login" className="underline underline-offset-4">
+          Login
         </Link>
       </div>
     </form>

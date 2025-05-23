@@ -1,4 +1,5 @@
 "use client";
+import { SiteAlert } from "@/components/ui/alerts.jsx";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -21,7 +22,7 @@ export default function AdminLoginPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
-    const res = await fetch("/api/login", {
+    const res = await fetch("../api/admin-auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
@@ -61,11 +62,11 @@ export default function AdminLoginPage() {
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="pb-1 text-xl">
+                <Label htmlFor="password" className="pb-1 text-xl">
                   Password
                 </Label>
                 <Input
-                  id="email"
+                  id="password"
                   placeholder="Password"
                   type="password"
                   value={password}
@@ -82,9 +83,11 @@ export default function AdminLoginPage() {
               >
                 Login
               </Button>
-              {error && <div className="text-red-500 text-center">{error}</div>}
             </CardFooter>
           </Card>
+          {error && (
+            <SiteAlert title="Error" description={error} className="mt-4" />
+          )}
         </form>
       </div>
     </div>

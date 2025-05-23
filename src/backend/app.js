@@ -2,14 +2,14 @@
 require("dotenv").config();
 
 // imports
-const express = require("express");
-const connectDB = require("./db/connect");
-const cors = require("cors");
+import express, { json } from "express";
+import connectDB from "./db/connect";
+import cors from "cors";
 
 // Router imports
-const helloWorldRouter = require("./routes/hello.route").default;
-const customerRouter = require("./routes/customer.route");
-const transactionRouter = require("./routes/transaction.route");
+import helloWorldRouter from "./routes/hello.route";
+import customerRouter from "./routes/customer.route";
+import transactionRouter from "./routes/transaction.route";
 
 // Variable conf
 const app = express();
@@ -29,7 +29,7 @@ const start = async () => {
 };
 
 // Middlewares
-app.use(express.json());
+app.use(json());
 app.use(cors());
 
 // Routes
