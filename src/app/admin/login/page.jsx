@@ -13,24 +13,29 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+
 export default function AdminLoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-
+  const [loading, setLoading] = useState(false);
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
+    setLoading(true);
     const res = await fetch("../api/admin-auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
     if (res.ok) {
+      toast.success("Login successful!");
       router.push("/dashboard");
     } else {
       setError("Invalid credentials");
+      setLoading(false);
     }
   }
 
@@ -57,6 +62,7 @@ export default function AdminLoginPage() {
                   id="Username"
                   placeholder="Username"
                   value={username}
+                  disabled={loading}
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
@@ -70,6 +76,7 @@ export default function AdminLoginPage() {
                   placeholder="Password"
                   type="password"
                   value={password}
+                  disabled={loading}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
@@ -81,7 +88,7 @@ export default function AdminLoginPage() {
                 variant="secondary"
                 className="bg-green-500 text-white text-md  hover:bg-green-700 p-5"
               >
-                Login
+                {loading ? "Logging in..." : "Login"}
               </Button>
             </CardFooter>
           </Card>

@@ -1,92 +1,74 @@
-import { getIronSession } from "iron-session";
-import { sessionOptions } from "@/lib/session";
-import dbConnect from "@/lib/db.js"; // Adjust the import based on your file structure
+// app/api/login/route.js
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
-import User from "@/backend/models/User";
+import jwt from "jsonwebtoken";
+import User from "@/backend/models/User"; // Your Mongoose User model
+import connectToDatabase from "@/lib/mongo";
+
+const JWT_SECRET = process.env.JWT_SECRET; 
 
 export async function POST(request) {
   try {
-    await dbConnect(); 
+    await connectToDatabase();
+    const { email, password } = await request.json();
 
-    const body = await request.json();
-    const { email, password } = body;
+    console.log("Login attempt with:", { email });
 
-   
     if (!email || !password) {
+      console.log("Missing email or password");
       return NextResponse.json(
-        { error: "Email and password are required." },
+        { error: "Email and password are required" },
         { status: 400 }
       );
     }
-    
-    const user = await User.findOne({ email: email.toLowerCase() }).lean(); // .lean() for a plain JS object, faster if not modifying
+
+    // Find user
+    const user = await User.findOne({ email: email.toLowerCase() });
+    console.log("User found:", user ? user.email : "No user found");
 
     if (!user) {
-      // Generic error message to prevent user enumeration
+      console.log("No user found for email:", email);
       return NextResponse.json(
-        { error: "Invalid email or password." },
-        { status: 401 } // Unauthorized
+        { error: "No user found with this email" },
+        { status: 401 }
       );
     }
 
-    // --- 3. Compare Password ---
-    // The password from the DB is user.passwordHash (as per your schema)
-    const isPasswordMatch = await bcrypt.compare(password, user.passwordHash);
+    // Verify password
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    console.log("Password comparison result:", isValidPassword);
+    console.log("Provided password:", password);
+    console.log("Stored hashed password:", user.password);
 
-    if (!isPasswordMatch) {
-      // Generic error message
-      return NextResponse.json(
-        { error: "Invalid email or password." },
-        { status: 401 } // Unauthorized
-      );
+    if (!isValidPassword) {
+      console.log("Invalid password for user:", email);
+      return NextResponse.json({ error: "Invalid password" }, { status: 401 });
     }
 
-    // --- 4. Create Session using iron-session ---
-    const session = await getIronSession(cookies(), sessionOptions);
-    session.user = {
-      id: user._id.toString(), // Mongoose uses _id
-      email: user.email,
-      name: user.name,
-      role: user.role,
-      phone: user.phone, // You can include other non-sensitive info needed by the client
-      // DO NOT store sensitive information like passwordHash in the session
-    };
-    await session.save(); // This encrypts the session and sets the cookie
-
-    // --- 5. Return Success Response ---
-    // Send back non-sensitive user information
-    const { passwordHash, ...userWithoutPassword } = user; // Exclude passwordHash
-
-    return NextResponse.json(
-      {
-        message: "Login successful!",
-        user: {
-          id: userWithoutPassword._id.toString(),
-          email: userWithoutPassword.email,
-          name: userWithoutPassword.name,
-          role: userWithoutPassword.role,
-          phone: userWithoutPassword.phone,
-        },
-      },
-      { status: 200 }
+    // Generate JWT
+    const token = jwt.sign(
+      { id: user._id.toString(), email: user.email, name: user.name },
+      JWT_SECRET,
+      { expiresIn: "1h" }
     );
-  } catch (err) {
-    console.error("Login Route Error:", err);
-    let errorMessage = "An unexpected error occurred during login.";
-    let statusCode = 500;
 
-    if (err.name === "SyntaxError") {
-      // from request.json()
-      errorMessage = "Invalid request format.";
-      statusCode = 400;
-    } else if (err.message.includes("Database connection failed")) {
-      errorMessage = err.message;
-      statusCode = 503; // Service Unavailable
-    }
-    // Add other specific error handling if needed
+    console.log("Login successful for user:", user.email);
 
-    return NextResponse.json({ error: errorMessage }, { status: statusCode });
+    // Set token in an HTTP-only cookie
+    const response = NextResponse.json({ message: "Login successful" });
+    response.cookies.set("auth_token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: 3600, // 1 hour
+    });
+
+    return response;
+  } catch (error) {
+    console.error("Login error:", error.message);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
