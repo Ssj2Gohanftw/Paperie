@@ -1,7 +1,7 @@
-import { connect } from "mongoose";
+// import { connect } from "mongoose";
 
-const connectDB = (connectionURI) => {
-  return connect(connectionURI);
-};
+// const connectDB = (connectionURI) => {
+//   return connect(connectionURI);
+// };
 
-export default connectDB;
+// export default connectDB;

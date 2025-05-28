@@ -3,18 +3,8 @@ import { GalleryVerticalEnd } from "lucide-react";
 import { LoginForm } from "@/components/login-form";
 import Link from "next/link";
 import Image from "next/image";
-import useUser from "@/hooks/useUser";
+
 export default function LoginPage() {
-  const { user, loading } = useUser({
-    redirectTo: "/shop",
-    redirectIfFound: true,
-  });
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-  if (user) {
-    return null;
-  }
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">

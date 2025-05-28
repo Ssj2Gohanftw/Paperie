@@ -5,38 +5,44 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { TriangleAlert } from "lucide-react";
 
 export function SignUpForm({ className, ...props }) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
+  });
+  const [pending, setPending] = useState(false);
+  const router = useRouter();
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const phone = form.phone.value;
-    const confirmPassword = form.confirmPassword.value;
-    try {
-      const res = await fetch("../api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, confirmPassword, phone }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Sign up failed");
-      // Session cookie is set by the API, so just redirect
-      window.location.href = "/shop";
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    setPending(true);
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      setPending(false);
+      toast.success(data.message);
+      router.push("/account/login");
+    } else if (res.status === 400) {
+      setError(data.message);
+      setPending(false);
+    } else if (res.status === 500) {
+      setError(data.message);
+      setPending(false);
     }
-  }
-
+  };
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
@@ -49,10 +55,24 @@ export function SignUpForm({ className, ...props }) {
           Enter your info to get started with us
         </p>
       </div>
+      {!!error && (
+        <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-destructive text-sm mb-6 ">
+          <TriangleAlert />
+          <p>{error}</p>
+        </div>
+      )}
       <div className="grid gap-6">
         <div className="grid gap-3">
           <Label htmlFor="name">Name</Label>
-          <Input id="name" type="text" placeholder="John Doe" required />
+          <Input
+            value={form.name}
+            disabled={pending}
+            id="name"
+            type="text"
+            placeholder="John Doe"
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            required
+          />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
@@ -61,7 +81,10 @@ export function SignUpForm({ className, ...props }) {
           <Input
             id="email"
             type="email"
+            disabled={pending}
+            value={form.email}
             placeholder="johndoe@example.com"
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
             required
           />
         </div>
@@ -69,25 +92,46 @@ export function SignUpForm({ className, ...props }) {
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
           </div>
-          <Input id="password" type="password" required />
+          <Input
+            id="password"
+            value={form.password}
+            disabled={pending}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            type="password"
+            required
+          />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
             <Label htmlFor="confirmPassword">Confirm Password</Label>
           </div>
-          <Input id="confirmPassword" type="password" required />
+          <Input
+            id="confirmPassword"
+            disabled={pending}
+            value={form.confirmPassword}
+            onChange={(e) =>
+              setForm({ ...form, confirmPassword: e.target.value })
+            }
+            type="password"
+            required
+          />
         </div>
-        {error && (
-          <div className="text-red-500 text-sm text-center">{error}</div>
-        )}
+
         <div className="grid gap-3">
           <div className="flex items-center">
             <Label htmlFor="phone">Phone</Label>
           </div>
-          <Input id="phone" type="tel" required />
+          <Input
+            id="phone"
+            type="tel"
+            value={form.phone}
+            disabled={pending}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            required
+          />
         </div>
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? "Signing Up..." : "Sign Up"}
+        <Button type="submit" className="w-full" disabled={pending}>
+          Sign Up
         </Button>
         {/* <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
           <span className="bg-background text-muted-foreground relative z-10 px-2">

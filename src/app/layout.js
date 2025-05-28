@@ -1,6 +1,7 @@
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-
+import { Toaster } from "@/components/ui/sonner";
+import { AuthProvider } from "@/components/auth-context";
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
   subsets: ["latin"],
@@ -34,7 +35,12 @@ export default function RootLayout({ children }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body>{children}</body>
+      <body>
+        <AuthProvider>
+          <Toaster />
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   );
 }
