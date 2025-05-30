@@ -2,7 +2,8 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-jwt-secret-here";
+const JWT_SECRET =
+  process.env.JWT_SECRET || "zxz9CR4OVQOVBlt8vzYHI72nBOklm44+TWhgyhxL+9s=";
 
 export async function middleware(request) {
   const token = request.cookies.get("auth_token")?.value;
@@ -23,5 +24,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/protected/:path*"], // Apply to specific routes, e.g., /protected/*
+  matcher: ["/shop/:path*", "/shop"],
 };

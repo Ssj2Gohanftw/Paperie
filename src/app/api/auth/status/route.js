@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-jwt-secret-here";
+const JWT_SECRET =
+  process.env.JWT_SECRET || "zxz9CR4OVQOVBlt8vzYHI72nBOklm44+TWhgyhxL+9s="; // Ensure this is set in your
 
 export async function GET() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const token = cookieStore.get("auth_token")?.value;
 
   if (!token) {

@@ -44,7 +44,8 @@ export function LoginForm({ className, ...props }) {
     } catch (error) {
       console.error("Fetch error:", error.message);
       setError("Failed to connect to the login API. Please try again.");
-      setPending(false);
+    } finally {
+      setPending(false); 
     }
   };
 

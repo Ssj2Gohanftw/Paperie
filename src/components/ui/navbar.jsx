@@ -1,10 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Loader, Menu, X } from "lucide-react";
 import NavLinks from "./navlinks";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { AuthContext } from "@/components/auth-context";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,39 +17,19 @@ import {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    const fetchUserStatus = async () => {
-      try {
-        const res = await fetch("/api/auth/status");
-        const data = await res.json();
-        if (data.isLoggedIn) {
-          setUser(data.user);
-        } else {
-          setUser(null);
-        }
-      } catch (error) {
-        console.error("Failed to fetch user status", error);
-        setUser(null);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchUserStatus();
-  }, []);
+  const { user, isLoading, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
+    setIsLoggingOut(true);
     try {
-      await fetch("/api/auth/logout", { method: "POST" });
-      setUser(null);
+      await logout();
       router.push("/account/login");
     } catch (error) {
       console.error("Logout failed", error);
+    } finally {
+      setIsLoggingOut(false);
     }
   };
 
@@ -104,7 +85,7 @@ const Navbar = () => {
               className="text-lg"
             />
           ))}
-        {isLoading ? (
+        {isLoading || isLoggingOut ? (
           <Loader className="animate-spin" />
         ) : user ? (
           <DropdownMenu>
@@ -168,7 +149,7 @@ const Navbar = () => {
                   />
                 </li>
               ))}
-            {isLoading ? (
+            {isLoading || isLoggingOut ? (
               <li>
                 <Loader className="animate-spin mx-auto" />
               </li>

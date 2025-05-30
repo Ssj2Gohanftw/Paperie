@@ -14,7 +14,6 @@ export async function POST(request) {
 
     console.log("Login attempt with:", { email });
 
-    // Validate input
     if (!email || !password) {
       console.log("Missing email or password");
       return NextResponse.json(
