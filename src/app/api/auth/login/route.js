@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import User from "@/backend/models/User"; // Your Mongoose User model
 import connectToDatabase from "@/lib/mongo";
 
-const JWT_SECRET = process.env.JWT_SECRET; 
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export async function POST(request) {
   try {
