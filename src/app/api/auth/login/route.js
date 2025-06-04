@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import User from "@/backend/models/User"; // Your Mongoose User model
+import User from "@/backend/models/User";
 import connectToDatabase from "@/lib/mongo";
 
 const JWT_SECRET = process.env.JWT_SECRET;

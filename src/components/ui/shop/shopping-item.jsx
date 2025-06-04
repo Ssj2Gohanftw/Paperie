@@ -24,7 +24,7 @@ const ShoppingItem = ({ products }) => {
         <CarouselContent className="flex gap-4 p-4">
           {products.map((product) => (
             <CarouselItem
-              key={product.id}
+              key={product._id}
               className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3"
             >
               <Card className="shadow-md h-full transition-transform hover:scale-102 hover:shadow-lg">
@@ -36,7 +36,7 @@ const ShoppingItem = ({ products }) => {
                 <CardContent className="p-3 mt-0 sm:p-4">
                   <div className="relative aspect-square w-full mb-2 overflow-hidden rounded-md">
                     <Image
-                      src={product.image}
+                      src={product.image[0]}
                       alt={product.name}
                       fill
                       className="object-cover rounded"

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { Instagram, Facebook } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
-
+import PaperieLogo from "./paperie-logo";
 const Footer = () => {
   return (
     <footer className="bg-white text-black pb-4 w-auto">
@@ -11,12 +10,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-center w-full">
             <div className="w-auto flex justify-center py-1 mb-2 ml-6">
-              <Image
-                width={140}
-                height={100}
-                alt="Paperie Logo"
-                className="w-32"
-                src="/images/logo/paperie-logo.png"
+              <PaperieLogo
+                width={120}
+                height={40}
+                className="object-contain pt-15 mt-2 py-2"
               />
             </div>
             <p className="text-sm">

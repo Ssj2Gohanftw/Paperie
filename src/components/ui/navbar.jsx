@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import { Loader, Menu, X } from "lucide-react";
 import NavLinks from "./navlinks";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/auth-context";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -14,6 +13,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import AvatarSkeleton from "./avatar-skeleton";
+import PaperieLogo from "./paperie-logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,11 +64,9 @@ const Navbar = () => {
       <div className="flex flex-1 justify-center">
         <Link href="/">
           <div className="relative w-50 left-2 sm:w-40 md:w-48 lg:w-56 aspect-[640/664] flex items-center justify-center">
-            <Image
-              src="/images/logo/paperie-logo.png"
-              alt="Paperie Logo"
-              fill
-              sizes="20%"
+            <PaperieLogo
+              width={120}
+              height={40}
               className="object-contain pt-15 mt-2 py-2"
             />
           </div>
@@ -86,7 +85,8 @@ const Navbar = () => {
             />
           ))}
         {isLoading || isLoggingOut ? (
-          <Loader className="animate-spin" />
+          // <Loader className="animate-spin" />
+          <AvatarSkeleton className="rounded-full h-10 w-10" />
         ) : user ? (
           <DropdownMenu>
             <DropdownMenuTrigger>

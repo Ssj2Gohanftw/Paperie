@@ -12,6 +12,7 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import PaperieLogo from "../paperie-logo";
 
 const items = [
   {
@@ -45,8 +46,8 @@ const AdminSidebar = () => {
     <Sidebar side="left">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[black] text-2xl">
-            Paperie Goa
+          <SidebarGroupLabel className="mb-35">
+            <PaperieLogo width={150} height={120} className="mt-35" />
           </SidebarGroupLabel>
           <SidebarSeparator />
           <SidebarGroupContent>

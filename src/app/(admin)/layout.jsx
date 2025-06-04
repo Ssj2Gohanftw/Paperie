@@ -3,8 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AdminSidebar from "@/components/ui/admin/admin-sidebar";
-import CalendarSidebar from "@/components/ui/admin/calendar-sidebar";
-
+import { CalendarSidebar } from "@/components/calendar-sidebar";
 export default async function AdminLayout({ children }) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
