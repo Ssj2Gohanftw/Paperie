@@ -1,40 +1,54 @@
 import { Schema, model } from "mongoose";
 
-const OrderSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
-  items: [
-    {
-      productId: {
-        type: Schema.Types.ObjectId,
-        ref: "Product",
-        required: true,
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-      price: {
-        type: Number,
-        required: true,
-      },
+const OrderSchema = new Schema(
+  {
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-  ],
-  transaction: {
-    type: Schema.Types.ObjectId,
-    ref: "Transaction",
+    items: [
+      {
+        productId: {
+          type: Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+        price: {
+          type: Number,
+          required: true,
+        },
+        customization: {
+          type: String,
+          default: "",
+        },
+      },
+    ],
+    total: {
+      type: Number,
+      default: 0,
+    },
+    // transaction: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Transaction",
+    // },
+    status: {
+      type: String,
+      enum: ["pending", "processing", "shipped", "delivered", "cancelled"],
+      default: "pending",
+    },
   },
-  status: {
-    type: String,
-    default: "pending",
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  { timestamps: true }
+);
+OrderSchema.pre("save", function (next) {
+  this.total = this.items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  next();
 });
-
 export default model("Order", OrderSchema);

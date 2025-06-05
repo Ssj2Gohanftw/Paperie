@@ -4,7 +4,6 @@ import ShoppingItem from "@/components/ui/shop/shopping-item";
 import { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/auth-context";
-import { Loader } from "lucide-react";
 import PageSkeleton from "@/components/ui/shop/page-skeleton";
 
 const ShopPage = () => {

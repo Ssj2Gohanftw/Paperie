@@ -1,26 +1,40 @@
 import { Schema, model } from "mongoose";
 
-const transactionSchema = Schema({
-  transactionId: {
-    type: String,
-    required: [true, "Gimme Transaction id fas fas"],
-  },
+const transactionSchema = Schema(
+  {
+    transactionId: {
+      type: String,
+      required: [true, "Provide Transaction id "],
+    },
 
-  customer: {
-    type: Schema.Types.ObjectId,
-    ref: "Customer",
-    required: true,
-  },
+    customer: {
+      type: Schema.Types.ObjectId,
+      ref: "Customer",
+      required: true,
+    },
 
-  completed: {
-    type: Boolean,
-    default: false,
+    order: {
+      type: Schema.Types.ObjectId,
+      ref: "Order",
+      required: false,
+    },
+    status: {
+      type: String,
+      enum: ["pending", "completed", "failed"],
+      default: "pending",
+    },
+    error: {
+      type: String,
+      default: "",
+    },
+    paymentMethod: {
+      type: String,
+      enum: ["credit_card", "paypal", "bank_transfer"],
+      default: null,
+    },
+    amount: { type: Number, default: 0 },
   },
-  order: {
-    type: Schema.Types.ObjectId,
-    ref: "Order",
-    required: false,
-  },
-});
+  { timestamps: true }
+);
 
 export default model("Transaction", transactionSchema);

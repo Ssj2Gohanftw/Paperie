@@ -11,11 +11,18 @@ const ProductSchema = new Schema(
       type: String,
       required: true,
     },
-    image: [String],
+    image: {
+      type: [String],
+      validate: {
+        validator: (v) => v.length > 0,
+        message: "At least one image is required",
+      },
+    },
     category: String,
     quantity: {
       type: Number,
       min: 0,
+      default: 0,
     },
     price: {
       type: Number,
